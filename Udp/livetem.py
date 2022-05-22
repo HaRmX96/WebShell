@@ -1,6 +1,4 @@
-import sys
-from io import StringIO
-from PyQt5.QtWidgets import QApplication, QMainWindow
+port QApplication, QMainWindow
 from PyQt5.QtWidgets import QLabel, QLineEdit, QPushButton, QGridLayout, QWidget
 from PyQt5.QtGui import QIcon, QPalette
 from PyQt5.QtCore import QTimer, pyqtSignal, pyqtSlot, Qt
@@ -14,30 +12,6 @@ class MainWindow(QMainWindow):
 	def __init__(self, parent=None):
 		super(MainWindow, self).__init__(parent)
 		#icon = QIcon("logo.png")
-		#self.setWindowIcon(icon)
-		self.setWindowTitle("LiveHack by nAkoustix v0.1")
-		
-		#pal = self.palette()
-		#pal.setColor(QPalette.Base, Qt.black)
-		#pal.setColor(QPalette.Text, Qt.green)
-		#self.setPalette(pal)
-		#self.setAutoFillBackground(True)
-		
-		self.console = Console(self)
-		self.lay = QGridLayout()
-		self.lay.addWidget(self.console, 0,0)
-        
-		cw = QWidget(self)
-		cw.setLayout(self.lay)
-		self.setCentralWidget(cw)
-		
-		self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-		self.socket.setblocking(0)
-		self.localAddr = ("localhost", 9001)
-		self.socket.bind(self.localAddr)
-		
-		self.socksend = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-		self.remoteAddr = ("localhost", 9000)
 		
 		self.buffer = []
 		self.indentation = 0
